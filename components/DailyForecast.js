@@ -47,7 +47,7 @@ export default function DailyForecast() {
       <div className="flex flex-col mt-4">
         <div className="-m-1.5 overflow-x-auto">
           <div className="p-1.5 min-w-full inline-block align-middle">
-            <div className="overflow-hidden">
+            <div className="overflow-x-auto">
               <table className="min-w-full">
                 <tbody>
                   {dailyData &&
@@ -70,10 +70,8 @@ export default function DailyForecast() {
 
                       return (
                         <tr key={index}>
-                          <td className="py-2 whitespace-nowrap font-medium">
-                            {dayName}
-                          </td>
-                          <td className="py-2 flex gap-x-2 whitespace-nowrap">
+                          <td className="py-1.5 px-2 font-medium">{dayName}</td>
+                          <td className="py-1.5 flex gap-x-2 px-2">
                             <span className="text-blue-400 text-2xl">
                               {icon}
                             </span>
@@ -81,7 +79,7 @@ export default function DailyForecast() {
                               {description}
                             </span>
                           </td>
-                          <td className="py-2 whitespace-nowrap font-medium">
+                          <td className="py-1.5 px-2 font-medium whitespace-nowrap">
                             {minTemp} | {maxTemp}°C
                           </td>
                         </tr>

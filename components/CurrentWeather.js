@@ -1,10 +1,6 @@
 import { useGlobalContext } from "@/context/globalContext";
 import { fetchCurrentWeather, fetchLocation } from "@/lib/fetchData";
-import {
-  getHumidityText,
-  getPressureDescription,
-  getUvIndexCategory,
-} from "@/lib/utils";
+import { getUvIndexCategory } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import {
   LuGaugeCircle,
@@ -61,7 +57,6 @@ const CurrentWeather = () => {
       name: "Humidity",
       icon: <WiHumidity className=" w-5 h-5" />,
       value: `${humidity}%`,
-      desc: getHumidityText(humidity),
     },
 
     {
@@ -69,21 +64,18 @@ const CurrentWeather = () => {
       name: "Pressure",
       icon: <LuGaugeCircle className=" w-5 h-5" />,
       value: `${pressure} hPa`,
-      desc: getPressureDescription(pressure),
     },
     {
       id: "uv-index",
       name: "UV Index",
       icon: <LuSunDim className=" w-5 h-5" />,
       value: `${uvIndexMax} of 11 (${getUvIndexCategory(uvIndexMax).text})`,
-      desc: `${getUvIndexCategory(uvIndexMax).protection}`,
     },
     {
       id: "wind",
       name: "Wind",
       icon: <LuWind className=" w-5 h-5" />,
       value: `${windSpeed} km/h`,
-      desc: "",
     },
 
     {
@@ -94,7 +86,6 @@ const CurrentWeather = () => {
         hour: "2-digit",
         minute: "2-digit",
       }),
-      desc: "",
     },
     {
       id: "sunset",
@@ -104,7 +95,6 @@ const CurrentWeather = () => {
         hour: "2-digit",
         minute: "2-digit",
       }),
-      desc: "",
     },
   ];
 
@@ -114,10 +104,10 @@ const CurrentWeather = () => {
       <Location location={location} />
 
       {/* Current weather data */}
-      <div className="px-4 py-4 rounded-md bg-blue-900 shadow-md min-h-[500px]">
+      <div className="px-4 py-6 rounded-md bg-blue-900 shadow-md min-h-[500px]">
         <WeatherSummary weatherData={weatherData} />
 
-        <div className=" grid grid-cols-2 gap-x-4 gap-y-4 mt-8">
+        <div className=" grid grid-cols-2 gap-x-4 gap-y-6 mt-10">
           {todaysWeather.map((item, index) => (
             <div
               key={index}
@@ -126,8 +116,7 @@ const CurrentWeather = () => {
               <div className="flex gap-x-2">
                 <span>{item.icon}</span> <span>{item.name}</span>
               </div>
-              <p className="font-bold text-lg">{item.value}</p>
-              <p className="text-sm">{item.desc}</p>
+              <p className="font-bold text-xl">{item.value}</p>
             </div>
           ))}
         </div>

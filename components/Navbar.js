@@ -15,7 +15,7 @@ export default function Navbar() {
         setActiveCityCoords([latitude, longitude]);
       });
     } else {
-      setActiveCityCoords([23.7797376, 90.3970816]);
+      console.log("Please turn on your location!");
     }
   };
 

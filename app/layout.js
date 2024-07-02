@@ -13,7 +13,7 @@ export const metadata = {
     title: "Weather",
     description:
       "It provides current weather condition and weather forecast for cities.",
-    url: "https://weather-sage.vercel.app/",
+    url: "https://weather-rho-ashen.vercel.app/",
     siteName: "Weather",
     locale: "bn_BD",
     type: "website",

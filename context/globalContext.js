@@ -12,7 +12,9 @@ export const GlobalContextProvider = ({ children }) => {
   const [geoCodedList, setGeoCodedList] = useState(defaultStates);
   const [inputValue, setInputValue] = useState("");
 
-  const [activeCityCoords, setActiveCityCoords] = useState();
+  const [activeCityCoords, setActiveCityCoords] = useState([
+    23.7797376, 90.3970816,
+  ]);
 
   //geocoded list
   const fetchGeoCodedList = async (search) => {
